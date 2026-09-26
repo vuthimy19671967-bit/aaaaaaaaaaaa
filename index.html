@@ -743,351 +743,294 @@
   );
 
 
-  // =====================================================
-  // COUNTRIES
-  // =====================================================
+ // =====================================================
+// COUNTRIES
+// =====================================================
 
-  let countries = [];
+const countries = [
+  ["Afghanistan", "AF"],
+  ["Albania", "AL"],
+  ["Algeria", "DZ"],
+  ["Andorra", "AD"],
+  ["Angola", "AO"],
+  ["Argentina", "AR"],
+  ["Armenia", "AM"],
+  ["Australia", "AU"],
+  ["Austria", "AT"],
+  ["Azerbaijan", "AZ"],
+  ["Bahamas", "BS"],
+  ["Bahrain", "BH"],
+  ["Bangladesh", "BD"],
+  ["Barbados", "BB"],
+  ["Belarus", "BY"],
+  ["Belgium", "BE"],
+  ["Belize", "BZ"],
+  ["Benin", "BJ"],
+  ["Bhutan", "BT"],
+  ["Bolivia", "BO"],
+  ["Bosnia and Herzegovina", "BA"],
+  ["Botswana", "BW"],
+  ["Brazil", "BR"],
+  ["Brunei", "BN"],
+  ["Bulgaria", "BG"],
+  ["Burkina Faso", "BF"],
+  ["Burundi", "BI"],
+  ["Cambodia", "KH"],
+  ["Cameroon", "CM"],
+  ["Canada", "CA"],
+  ["Cape Verde", "CV"],
+  ["Central African Republic", "CF"],
+  ["Chad", "TD"],
+  ["Chile", "CL"],
+  ["China", "CN"],
+  ["Colombia", "CO"],
+  ["Comoros", "KM"],
+  ["Costa Rica", "CR"],
+  ["Croatia", "HR"],
+  ["Cuba", "CU"],
+  ["Cyprus", "CY"],
+  ["Czechia", "CZ"],
+  ["Denmark", "DK"],
+  ["Djibouti", "DJ"],
+  ["Dominica", "DM"],
+  ["Dominican Republic", "DO"],
+  ["Ecuador", "EC"],
+  ["Egypt", "EG"],
+  ["El Salvador", "SV"],
+  ["Estonia", "EE"],
+  ["Eswatini", "SZ"],
+  ["Ethiopia", "ET"],
+  ["Fiji", "FJ"],
+  ["Finland", "FI"],
+  ["France", "FR"],
+  ["Gabon", "GA"],
+  ["Gambia", "GM"],
+  ["Georgia", "GE"],
+  ["Germany", "DE"],
+  ["Ghana", "GH"],
+  ["Greece", "GR"],
+  ["Grenada", "GD"],
+  ["Guatemala", "GT"],
+  ["Guinea", "GN"],
+  ["Guinea-Bissau", "GW"],
+  ["Guyana", "GY"],
+  ["Haiti", "HT"],
+  ["Honduras", "HN"],
+  ["Hungary", "HU"],
+  ["Iceland", "IS"],
+  ["India", "IN"],
+  ["Indonesia", "ID"],
+  ["Iran", "IR"],
+  ["Iraq", "IQ"],
+  ["Ireland", "IE"],
+  ["Israel", "IL"],
+  ["Italy", "IT"],
+  ["Jamaica", "JM"],
+  ["Japan", "JP"],
+  ["Jordan", "JO"],
+  ["Kazakhstan", "KZ"],
+  ["Kenya", "KE"],
+  ["Kiribati", "KI"],
+  ["Kuwait", "KW"],
+  ["Kyrgyzstan", "KG"],
+  ["Laos", "LA"],
+  ["Latvia", "LV"],
+  ["Lebanon", "LB"],
+  ["Lesotho", "LS"],
+  ["Liberia", "LR"],
+  ["Libya", "LY"],
+  ["Liechtenstein", "LI"],
+  ["Lithuania", "LT"],
+  ["Luxembourg", "LU"],
+  ["Madagascar", "MG"],
+  ["Malawi", "MW"],
+  ["Malaysia", "MY"],
+  ["Maldives", "MV"],
+  ["Mali", "ML"],
+  ["Malta", "MT"],
+  ["Marshall Islands", "MH"],
+  ["Mauritania", "MR"],
+  ["Mauritius", "MU"],
+  ["Mexico", "MX"],
+  ["Micronesia", "FM"],
+  ["Moldova", "MD"],
+  ["Monaco", "MC"],
+  ["Mongolia", "MN"],
+  ["Montenegro", "ME"],
+  ["Morocco", "MA"],
+  ["Mozambique", "MZ"],
+  ["Myanmar", "MM"],
+  ["Namibia", "NA"],
+  ["Nauru", "NR"],
+  ["Nepal", "NP"],
+  ["Netherlands", "NL"],
+  ["New Zealand", "NZ"],
+  ["Nicaragua", "NI"],
+  ["Niger", "NE"],
+  ["Nigeria", "NG"],
+  ["North Korea", "KP"],
+  ["North Macedonia", "MK"],
+  ["Norway", "NO"],
+  ["Oman", "OM"],
+  ["Pakistan", "PK"],
+  ["Palau", "PW"],
+  ["Panama", "PA"],
+  ["Papua New Guinea", "PG"],
+  ["Paraguay", "PY"],
+  ["Peru", "PE"],
+  ["Philippines", "PH"],
+  ["Poland", "PL"],
+  ["Portugal", "PT"],
+  ["Qatar", "QA"],
+  ["Romania", "RO"],
+  ["Russia", "RU"],
+  ["Rwanda", "RW"],
+  ["Saint Kitts and Nevis", "KN"],
+  ["Saint Lucia", "LC"],
+  ["Saint Vincent and the Grenadines", "VC"],
+  ["Samoa", "WS"],
+  ["San Marino", "SM"],
+  ["Sao Tome and Principe", "ST"],
+  ["Saudi Arabia", "SA"],
+  ["Senegal", "SN"],
+  ["Serbia", "RS"],
+  ["Seychelles", "SC"],
+  ["Sierra Leone", "SL"],
+  ["Singapore", "SG"],
+  ["Slovakia", "SK"],
+  ["Slovenia", "SI"],
+  ["Solomon Islands", "SB"],
+  ["Somalia", "SO"],
+  ["South Africa", "ZA"],
+  ["South Korea", "KR"],
+  ["South Sudan", "SS"],
+  ["Spain", "ES"],
+  ["Sri Lanka", "LK"],
+  ["Sudan", "SD"],
+  ["Suriname", "SR"],
+  ["Sweden", "SE"],
+  ["Switzerland", "CH"],
+  ["Syria", "SY"],
+  ["Taiwan", "TW"],
+  ["Tajikistan", "TJ"],
+  ["Tanzania", "TZ"],
+  ["Thailand", "TH"],
+  ["Timor-Leste", "TL"],
+  ["Togo", "TG"],
+  ["Tonga", "TO"],
+  ["Trinidad and Tobago", "TT"],
+  ["Tunisia", "TN"],
+  ["Turkey", "TR"],
+  ["Turkmenistan", "TM"],
+  ["Tuvalu", "TV"],
+  ["Uganda", "UG"],
+  ["Ukraine", "UA"],
+  ["United Arab Emirates", "AE"],
+  ["United Kingdom", "GB"],
+  ["United States", "US"],
+  ["Uruguay", "UY"],
+  ["Uzbekistan", "UZ"],
+  ["Vanuatu", "VU"],
+  ["Vatican City", "VA"],
+  ["Venezuela", "VE"],
+  ["Vietnam", "VN"],
+  ["Yemen", "YE"],
+  ["Zambia", "ZM"],
+  ["Zimbabwe", "ZW"]
+];
 
 
-  /*
-    Country data is loaded from a public JSON file.
+// =====================================================
+// DISPLAY COUNTRIES
+// =====================================================
 
-    This avoids depending on the old REST Countries
-    endpoint that was causing the "Could not load
-    countries" problem.
-  */
+function displayCountries(list) {
 
-  const countryURL =
-    "https://raw.githubusercontent.com/" +
-    "datasets/country-list/master/data.csv";
+  const container =
+    document.getElementById("countryList");
 
+  container.innerHTML = "";
 
-  async function loadCountries() {
-
-    const list =
-      document.getElementById(
-        "countryList"
-      );
-
-
-    try {
-
-      const response =
-        await fetch(
-          countryURL
-        );
-
-
-      if (!response.ok) {
-
-        throw new Error(
-          "HTTP " +
-          response.status
-        );
-
-      }
-
-
-      const csv =
-        await response.text();
-
-
-      countries =
-        parseCountryCSV(
-          csv
-        );
-
-
-      countries.sort(
-        (a, b) =>
-          a.name.localeCompare(
-            b.name
-          )
-      );
-
-
-      displayCountries(
-        countries
-      );
-
-
-    } catch (error) {
-
-      console.error(
-        "Country loading error:",
-        error
-      );
-
-
-      list.innerHTML =
-        `
-        <p class="error">
-          Could not load countries.
-        </p>
-        `;
-
-    }
-
+  if (list.length === 0) {
+    container.innerHTML =
+      "<p>No country found.</p>";
+    return;
   }
 
+  list.forEach(([name, code]) => {
 
-  // =====================================================
-  // CSV PARSER
-  // =====================================================
+    const div =
+      document.createElement("div");
 
-  function parseCountryCSV(csv) {
+    div.className = "country";
 
-    const lines =
-      csv
-        .trim()
-        .split(/\r?\n/);
+    const flag =
+      getFlagEmoji(code);
 
+    div.innerHTML = `
+      <span class="country-flag">
+        ${flag}
+      </span>
 
-    if (lines.length < 2) {
+      <strong>${escapeHTML(name)}</strong>
 
-      return [];
+      <br>
 
-    }
+      <small>${code}</small>
+    `;
 
+    container.appendChild(div);
+  });
+}
 
-    const result = [];
 
+// =====================================================
+// COUNTRY SEARCH
+// =====================================================
 
-    for (
-      let i = 1;
-      i < lines.length;
-      i++
-    ) {
+window.searchCountries = function () {
 
-      const line =
-        lines[i].trim();
+  const search =
+    document
+      .getElementById("countrySearch")
+      .value
+      .toLowerCase()
+      .trim();
 
-
-      if (!line) {
-        continue;
-      }
-
-
-      const parts =
-        line.split(",");
-
-
-      const name =
-        parts[0]
-          ?.replace(/^"|"$/g, "")
-          .trim();
-
-
-      const code =
-        parts[1]
-          ?.replace(/^"|"$/g, "")
-          .trim();
-
-
-      if (name) {
-
-        result.push({
-
-          name:
-            name,
-
-          code:
-            code || ""
-
-        });
-
-      }
-
-    }
-
-
-    return result;
-
-  }
-
-
-  // =====================================================
-  // COUNTRY DISPLAY
-  // =====================================================
-
-  function displayCountries(
-    listData
-  ) {
-
-    const list =
-      document.getElementById(
-        "countryList"
-      );
-
-
-    list.innerHTML = "";
-
-
-    if (
-      listData.length === 0
-    ) {
-
-      list.innerHTML =
-        "<p>No country found.</p>";
-
-      return;
-
-    }
-
-
-    listData.forEach(
-      country => {
-
-        const div =
-          document.createElement(
-            "div"
-          );
-
-
-        div.className =
-          "country";
-
-
-        const flag =
-          country.code
-            ? getFlagEmoji(
-                country.code
-              )
-            : "🌍";
-
-
-        const flagElement =
-          document.createElement(
-            "span"
-          );
-
-
-        flagElement.className =
-          "country-flag";
-
-
-        flagElement.textContent =
-          flag;
-
-
-        const nameElement =
-          document.createElement(
-            "strong"
-          );
-
-
-        nameElement.textContent =
-          country.name;
-
-
-        const br =
-          document.createElement(
-            "br"
-          );
-
-
-        const codeElement =
-          document.createElement(
-            "small"
-          );
-
-
-        codeElement.textContent =
-          country.code;
-
-
-        div.appendChild(
-          flagElement
-        );
-
-        div.appendChild(
-          nameElement
-        );
-
-        div.appendChild(
-          br
-        );
-
-        div.appendChild(
-          codeElement
-        );
-
-
-        list.appendChild(
-          div
-        );
-
-      }
+  const filtered =
+    countries.filter(([name, code]) =>
+      name.toLowerCase().includes(search) ||
+      code.toLowerCase().includes(search)
     );
 
+  displayCountries(filtered);
+};
+
+
+// =====================================================
+// FLAG
+// =====================================================
+
+function getFlagEmoji(code) {
+
+  if (!code || code.length !== 2) {
+    return "🌍";
   }
 
-
-  // =====================================================
-  // COUNTRY SEARCH
-  // =====================================================
-
-  window.searchCountries =
-    function () {
-
-      const search =
-        document
-          .getElementById(
-            "countrySearch"
-          )
-          .value
-          .toLowerCase()
-          .trim();
-
-
-      const filtered =
-        countries.filter(
-          country =>
-            country.name
-              .toLowerCase()
-              .includes(search)
-        );
-
-
-      displayCountries(
-        filtered
-      );
-
-    };
-
-
-  // =====================================================
-  // COUNTRY FLAG
-  // =====================================================
-
-  function getFlagEmoji(
-    countryCode
-  ) {
-
-    if (
-      !countryCode ||
-      countryCode.length !== 2
-    ) {
-
-      return "🌍";
-
-    }
-
-
-    return countryCode
-      .toUpperCase()
-      .split("")
-      .map(
-        char =>
-          String.fromCodePoint(
-            127397 +
-            char.charCodeAt(0)
-          )
+  return code
+    .toUpperCase()
+    .split("")
+    .map(char =>
+      String.fromCodePoint(
+        127397 + char.charCodeAt(0)
       )
-      .join("");
+    )
+    .join("");
+}
 
-  }
+
+// Hiển thị toàn bộ quốc gia lúc mở trang
+displayCountries(countries);
 
 
   loadCountries();
