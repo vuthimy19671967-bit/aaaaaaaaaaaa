@@ -20,7 +20,7 @@
     }
 
     header {
-      padding: 25px;
+      padding: 30px 20px;
       text-align: center;
       background: linear-gradient(135deg, #172554, #064e3b);
       border-bottom: 1px solid #30363d;
@@ -28,7 +28,7 @@
 
     header h1 {
       margin: 0;
-      font-size: 32px;
+      font-size: 34px;
     }
 
     header p {
@@ -45,7 +45,7 @@
       background: #161b22;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
     }
 
     nav button {
@@ -67,7 +67,7 @@
     }
 
     section {
-      margin-bottom: 45px;
+      margin-bottom: 55px;
     }
 
     section h2 {
@@ -79,10 +79,6 @@
       display: flex;
       gap: 10px;
       margin: 20px 0;
-    }
-
-    .search-box input {
-      flex: 1;
     }
 
     input {
@@ -99,6 +95,10 @@
       border-color: #58a6ff;
     }
 
+    .search-box input {
+      flex: 1;
+    }
+
     button {
       border: none;
       border-radius: 8px;
@@ -113,9 +113,14 @@
       filter: brightness(1.15);
     }
 
+    /* =========================
+       DINOSAURS
+       ========================= */
+
     .dino-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      grid-template-columns:
+        repeat(auto-fit, minmax(210px, 1fr));
       gap: 15px;
     }
 
@@ -137,9 +142,44 @@
       color: #7ee787;
     }
 
+    /* =========================
+       COUNTRIES
+       ========================= */
+
+    .country-list {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(200px, 1fr));
+      gap: 10px;
+    }
+
+    .country {
+      padding: 14px;
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 9px;
+      transition: 0.2s;
+    }
+
+    .country:hover {
+      border-color: #58a6ff;
+      transform: translateY(-2px);
+    }
+
+    .country-flag {
+      font-size: 30px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    /* =========================
+       AUTH
+       ========================= */
+
     .auth-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
       gap: 20px;
     }
 
@@ -168,7 +208,12 @@
       background: #0d1117;
       border-radius: 8px;
       color: #79c0ff;
+      word-break: break-word;
     }
+
+    /* =========================
+       LEADERBOARD
+       ========================= */
 
     .leaderboard {
       max-width: 700px;
@@ -177,7 +222,8 @@
 
     .leaderboard-row {
       display: grid;
-      grid-template-columns: 70px 1fr 120px;
+      grid-template-columns:
+        70px 1fr 120px;
       gap: 10px;
       align-items: center;
       padding: 13px;
@@ -197,19 +243,6 @@
       color: #7ee787;
     }
 
-    .country-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 10px;
-    }
-
-    .country {
-      padding: 12px;
-      background: #161b22;
-      border: 1px solid #30363d;
-      border-radius: 8px;
-    }
-
     .loading {
       color: #8b949e;
     }
@@ -227,6 +260,7 @@
     }
 
     @media (max-width: 600px) {
+
       header h1 {
         font-size: 25px;
       }
@@ -236,21 +270,31 @@
       }
 
       .leaderboard-row {
-        grid-template-columns: 50px 1fr 90px;
+        grid-template-columns:
+          50px 1fr 90px;
       }
     }
   </style>
 </head>
 
+
 <body>
 
 <header>
-  <h1>🦖 Dino & World Explorer 🌍</h1>
-  <p>Explore dinosaurs, countries and the login leaderboard.</p>
+
+  <h1>
+    🦖 Dino & World Explorer 🌍
+  </h1>
+
+  <p>
+    Explore dinosaurs, countries and the login leaderboard.
+  </p>
+
 </header>
 
 
 <nav>
+
   <button onclick="scrollToSection('dinosaurs')">
     🦖 Dinosaurs
   </button>
@@ -266,72 +310,97 @@
   <button onclick="scrollToSection('leaderboard')">
     🏆 Leaderboard
   </button>
+
 </nav>
 
 
 <main>
 
-  <!-- ========================= -->
+  <!-- ================================================= -->
   <!-- DINOSAURS -->
-  <!-- ========================= -->
+  <!-- ================================================= -->
 
   <section id="dinosaurs">
 
-    <h2>🦖 Dinosaur Explorer</h2>
+    <h2>
+      🦖 Dinosaur Explorer
+    </h2>
 
     <div class="search-box">
+
       <input
         id="dinoSearch"
         type="text"
         placeholder="Search dinosaur..."
         oninput="searchDinosaurs()"
       >
+
     </div>
 
-    <div id="dinoGrid" class="dino-grid"></div>
+    <div
+      id="dinoGrid"
+      class="dino-grid"
+    ></div>
 
   </section>
 
 
-  <!-- ========================= -->
+  <!-- ================================================= -->
   <!-- COUNTRIES -->
-  <!-- ========================= -->
+  <!-- ================================================= -->
 
   <section id="countries">
 
-    <h2>🌍 World Explorer</h2>
+    <h2>
+      🌍 World Explorer
+    </h2>
 
     <div class="search-box">
+
       <input
         id="countrySearch"
         type="text"
         placeholder="Search country..."
         oninput="searchCountries()"
       >
+
     </div>
 
-    <div id="countryList" class="country-list">
-      <p class="loading">Loading countries...</p>
+    <div
+      id="countryList"
+      class="country-list"
+    >
+
+      <p class="loading">
+        Loading countries...
+      </p>
+
     </div>
 
   </section>
 
 
-  <!-- ========================= -->
+  <!-- ================================================= -->
   <!-- AUTHENTICATION -->
-  <!-- ========================= -->
+  <!-- ================================================= -->
 
   <section id="auth">
 
-    <h2>🔐 Account</h2>
+    <h2>
+      🔐 Account
+    </h2>
+
 
     <div class="auth-container">
+
 
       <!-- REGISTER -->
 
       <div class="auth-box">
 
-        <h3>📝 Register</h3>
+        <h3>
+          📝 Register
+        </h3>
 
         <input
           id="registerUsername"
@@ -363,7 +432,9 @@
 
       <div class="auth-box">
 
-        <h3>🔑 Login</h3>
+        <h3>
+          🔑 Login
+        </h3>
 
         <input
           id="loginEmail"
@@ -399,21 +470,25 @@
   </section>
 
 
-  <!-- ========================= -->
+  <!-- ================================================= -->
   <!-- LEADERBOARD -->
-  <!-- ========================= -->
+  <!-- ================================================= -->
 
   <section id="leaderboard">
 
-    <h2>🏆 Login Leaderboard</h2>
+    <h2>
+      🏆 Login Leaderboard
+    </h2>
 
     <div
       id="leaderboardList"
       class="leaderboard"
     >
+
       <p class="loading">
         Loading leaderboard...
       </p>
+
     </div>
 
   </section>
@@ -422,7 +497,9 @@
 
 
 <footer>
+
   Dino & World Explorer 🦖🌍
+
 </footer>
 
 
@@ -434,7 +511,8 @@
 
   import {
     initializeApp
-  } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
+  } from
+    "https://www.gstatic.com/firebasejs/12.0.0/firebase-app.js";
 
 
   import {
@@ -443,7 +521,8 @@
     signInWithEmailAndPassword,
     signOut,
     onAuthStateChanged
-  } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
+  } from
+    "https://www.gstatic.com/firebasejs/12.0.0/firebase-auth.js";
 
 
   import {
@@ -458,7 +537,8 @@
     orderBy,
     limit,
     getDocs
-  } from "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
+  } from
+    "https://www.gstatic.com/firebasejs/12.0.0/firebase-firestore.js";
 
 
   // =====================================================
@@ -487,6 +567,7 @@
 
     measurementId:
       "G-4RY1Q5MXBR"
+
   };
 
 
@@ -494,93 +575,128 @@
   // INITIALIZE FIREBASE
   // =====================================================
 
-  const app = initializeApp(firebaseConfig);
+  const app =
+    initializeApp(firebaseConfig);
 
-  const auth = getAuth(app);
+  const auth =
+    getAuth(app);
 
-  const db = getFirestore(app);
+  const db =
+    getFirestore(app);
 
 
-  console.log("🔥 Firebase connected");
+  console.log(
+    "🔥 Firebase connected"
+  );
 
 
   // =====================================================
   // DINOSAUR DATA
   // =====================================================
 
- const dinosaurs = [
-  "Tyrannosaurus Rex",
-  "Giganotosaurus",
-  "Spinosaurus",
-  "Velociraptor",
-  "Triceratops",
-  "Stegosaurus",
-  "Brachiosaurus",
-  "Allosaurus",
-  "Ankylosaurus",
-  "Carnotaurus",
-  "Parasaurolophus",
-  "Dilophosaurus",
-  "Apatosaurus",
-  "Diplodocus",
-  "Pachycephalosaurus",
-  "Iguanodon",
-  "Compsognathus",
-  "Deinonychus",
-  "Therizinosaurus",
-  "Dreadnoughtus",
-  "Albertosaurus",
-  "Oviraptor",
-  "Maiasaura",
-  "Pachyrhinosaurus",
-  "Ceratosaurus",
-  "Coelophysis",
-  "Styracosaurus",
-  "Edmontosaurus",
-  "Guanlong",
-  "Yutyrannus",
-  "Gallimimus",
-  "Utahraptor",
-  "Mosasaurus",
-  "Pteranodon",
+  const dinosaurs = [
 
-  // Dino Edition
-  "Dodo",
-  "Kenken"
-];
+    "Tyrannosaurus Rex",
+    "Giganotosaurus",
+    "Spinosaurus",
+    "Velociraptor",
+    "Triceratops",
+    "Stegosaurus",
+    "Brachiosaurus",
+    "Allosaurus",
+    "Ankylosaurus",
+    "Carnotaurus",
+    "Parasaurolophus",
+    "Dilophosaurus",
+    "Apatosaurus",
+    "Diplodocus",
+    "Pachycephalosaurus",
+    "Iguanodon",
+    "Compsognathus",
+    "Deinonychus",
+    "Therizinosaurus",
+    "Dreadnoughtus",
+    "Albertosaurus",
+    "Oviraptor",
+    "Maiasaura",
+    "Pachyrhinosaurus",
+    "Ceratosaurus",
+    "Coelophysis",
+    "Styracosaurus",
+    "Edmontosaurus",
+    "Guanlong",
+    "Yutyrannus",
+    "Gallimimus",
+    "Utahraptor",
+    "Mosasaurus",
+    "Pteranodon",
+
+    // Dino Edition
+    "Dodo",
+    "Kenken"
+
+  ];
 
 
   // =====================================================
-  // DISPLAY DINOSAURS
+  // DINOSAUR DISPLAY
   // =====================================================
 
   function displayDinosaurs(list) {
 
     const grid =
-      document.getElementById("dinoGrid");
+      document.getElementById(
+        "dinoGrid"
+      );
+
 
     grid.innerHTML = "";
+
 
     if (list.length === 0) {
 
       grid.innerHTML =
-        "<p>No dinosaur found. Humanity survives another day.</p>";
+        "<p>No dinosaur found.</p>";
 
       return;
+
     }
 
 
     list.forEach(name => {
 
       const card =
-        document.createElement("div");
+        document.createElement(
+          "div"
+        );
 
-      card.className = "dino-card";
 
-      card.innerHTML = `
-        <h3>🦖 ${escapeHTML(name)}</h3>
-        <p>Species explorer entry.</p>
-      `;
+      card.className =
+        "dino-card";
+
+
+      const title =
+        document.createElement(
+          "h3"
+        );
+
+
+      title.textContent =
+        "🦖 " + name;
+
+
+      const description =
+        document.createElement(
+          "p"
+        );
+
+
+      description.textContent =
+        "Species explorer entry.";
+
+
+      card.appendChild(title);
+      card.appendChild(description);
 
       grid.appendChild(card);
 
@@ -593,74 +709,123 @@
   // DINOSAUR SEARCH
   // =====================================================
 
-  window.searchDinosaurs = function () {
+  window.searchDinosaurs =
+    function () {
 
-    const search =
-      document
-        .getElementById("dinoSearch")
-        .value
-        .toLowerCase()
-        .trim();
+      const search =
+        document
+          .getElementById(
+            "dinoSearch"
+          )
+          .value
+          .toLowerCase()
+          .trim();
 
 
-    const filtered =
-      dinosaurs.filter(dino =>
-        dino.toLowerCase().includes(search)
+      const filtered =
+        dinosaurs.filter(
+          dino =>
+            dino
+              .toLowerCase()
+              .includes(search)
+        );
+
+
+      displayDinosaurs(
+        filtered
       );
 
-
-    displayDinosaurs(filtered);
-
-  };
+    };
 
 
-  displayDinosaurs(dinosaurs);
+  displayDinosaurs(
+    dinosaurs
+  );
 
 
   // =====================================================
-  // COUNTRY API
+  // COUNTRIES
   // =====================================================
 
   let countries = [];
 
 
+  /*
+    Country data is loaded from a public JSON file.
+
+    This avoids depending on the old REST Countries
+    endpoint that was causing the "Could not load
+    countries" problem.
+  */
+
+  const countryURL =
+    "https://raw.githubusercontent.com/" +
+    "datasets/country-list/master/data.csv";
+
+
   async function loadCountries() {
 
     const list =
-      document.getElementById("countryList");
+      document.getElementById(
+        "countryList"
+      );
+
 
     try {
 
       const response =
         await fetch(
-          "https://restcountries.com/v3.1/all?fields=name,flags,cca2"
+          countryURL
         );
 
 
       if (!response.ok) {
-        throw new Error("Country API failed");
+
+        throw new Error(
+          "HTTP " +
+          response.status
+        );
+
       }
 
 
+      const csv =
+        await response.text();
+
+
       countries =
-        await response.json();
+        parseCountryCSV(
+          csv
+        );
 
 
-      countries.sort((a, b) =>
-        a.name.common.localeCompare(
-          b.name.common
-        )
+      countries.sort(
+        (a, b) =>
+          a.name.localeCompare(
+            b.name
+          )
       );
 
 
-      displayCountries(countries);
+      displayCountries(
+        countries
+      );
+
 
     } catch (error) {
 
-      console.error(error);
+      console.error(
+        "Country loading error:",
+        error
+      );
+
 
       list.innerHTML =
-        '<p class="error">Could not load countries.</p>';
+        `
+        <p class="error">
+          Could not load countries.
+        </p>
+        `;
 
     }
 
@@ -668,72 +833,193 @@
 
 
   // =====================================================
-  // DISPLAY COUNTRIES
+  // CSV PARSER
   // =====================================================
 
-  function displayCountries(listData) {
+  function parseCountryCSV(csv) {
+
+    const lines =
+      csv
+        .trim()
+        .split(/\r?\n/);
+
+
+    if (lines.length < 2) {
+
+      return [];
+
+    }
+
+
+    const result = [];
+
+
+    for (
+      let i = 1;
+      i < lines.length;
+      i++
+    ) {
+
+      const line =
+        lines[i].trim();
+
+
+      if (!line) {
+        continue;
+      }
+
+
+      const parts =
+        line.split(",");
+
+
+      const name =
+        parts[0]
+          ?.replace(/^"|"$/g, "")
+          .trim();
+
+
+      const code =
+        parts[1]
+          ?.replace(/^"|"$/g, "")
+          .trim();
+
+
+      if (name) {
+
+        result.push({
+
+          name:
+            name,
+
+          code:
+            code || ""
+
+        });
+
+      }
+
+    }
+
+
+    return result;
+
+  }
+
+
+  // =====================================================
+  // COUNTRY DISPLAY
+  // =====================================================
+
+  function displayCountries(
+    listData
+  ) {
 
     const list =
-      document.getElementById("countryList");
+      document.getElementById(
+        "countryList"
+      );
+
 
     list.innerHTML = "";
 
 
-    if (listData.length === 0) {
+    if (
+      listData.length === 0
+    ) {
 
       list.innerHTML =
         "<p>No country found.</p>";
 
       return;
+
     }
 
 
-    listData.forEach(country => {
+    listData.forEach(
+      country => {
 
-      const div =
-        document.createElement("div");
-
-      div.className = "country";
-
-
-      const flag =
-        country.flags?.svg ||
-        country.flags?.png ||
-        "";
+        const div =
+          document.createElement(
+            "div"
+          );
 
 
-      div.innerHTML = `
-        ${
-          flag
-            ? `<img
-                src="${flag}"
-                alt=""
-                style="
-                  width:35px;
-                  height:22px;
-                  object-fit:cover;
-                  vertical-align:middle;
-                  margin-right:8px;
-                "
-              >`
-            : ""
-        }
-
-        <strong>
-          ${escapeHTML(country.name.common)}
-        </strong>
-
-        <br>
-
-        <small>
-          ${escapeHTML(country.cca2 || "")}
-        </small>
-      `;
+        div.className =
+          "country";
 
 
-      list.appendChild(div);
+        const flag =
+          country.code
+            ? getFlagEmoji(
+                country.code
+              )
+            : "🌍";
 
-    });
+
+        const flagElement =
+          document.createElement(
+            "span"
+          );
+
+
+        flagElement.className =
+          "country-flag";
+
+
+        flagElement.textContent =
+          flag;
+
+
+        const nameElement =
+          document.createElement(
+            "strong"
+          );
+
+
+        nameElement.textContent =
+          country.name;
+
+
+        const br =
+          document.createElement(
+            "br"
+          );
+
+
+        const codeElement =
+          document.createElement(
+            "small"
+          );
+
+
+        codeElement.textContent =
+          country.code;
+
+
+        div.appendChild(
+          flagElement
+        );
+
+        div.appendChild(
+          nameElement
+        );
+
+        div.appendChild(
+          br
+        );
+
+        div.appendChild(
+          codeElement
+        );
+
+
+        list.appendChild(
+          div
+        );
+
+      }
+    );
 
   }
 
@@ -742,27 +1028,66 @@
   // COUNTRY SEARCH
   // =====================================================
 
-  window.searchCountries = function () {
+  window.searchCountries =
+    function () {
 
-    const search =
-      document
-        .getElementById("countrySearch")
-        .value
-        .toLowerCase()
-        .trim();
-
-
-    const filtered =
-      countries.filter(country =>
-        country.name.common
+      const search =
+        document
+          .getElementById(
+            "countrySearch"
+          )
+          .value
           .toLowerCase()
-          .includes(search)
+          .trim();
+
+
+      const filtered =
+        countries.filter(
+          country =>
+            country.name
+              .toLowerCase()
+              .includes(search)
+        );
+
+
+      displayCountries(
+        filtered
       );
 
+    };
 
-    displayCountries(filtered);
 
-  };
+  // =====================================================
+  // COUNTRY FLAG
+  // =====================================================
+
+  function getFlagEmoji(
+    countryCode
+  ) {
+
+    if (
+      !countryCode ||
+      countryCode.length !== 2
+    ) {
+
+      return "🌍";
+
+    }
+
+
+    return countryCode
+      .toUpperCase()
+      .split("")
+      .map(
+        char =>
+          String.fromCodePoint(
+            127397 +
+            char.charCodeAt(0)
+          )
+      )
+      .join("");
+
+  }
 
 
   loadCountries();
@@ -772,300 +1097,377 @@
   // REGISTER
   // =====================================================
 
-  window.register = async function () {
+  window.register =
+    async function () {
 
-    const username =
-      document
-        .getElementById("registerUsername")
-        .value
-        .trim();
-
-
-    const email =
-      document
-        .getElementById("registerEmail")
-        .value
-        .trim();
+      const username =
+        document
+          .getElementById(
+            "registerUsername"
+          )
+          .value
+          .trim();
 
 
-    const password =
-      document
-        .getElementById("registerPassword")
-        .value;
+      const email =
+        document
+          .getElementById(
+            "registerEmail"
+          )
+          .value
+          .trim();
 
 
-    if (!username || !email || !password) {
-
-      alert(
-        "Please fill in all fields."
-      );
-
-      return;
-    }
+      const password =
+        document
+          .getElementById(
+            "registerPassword"
+          )
+          .value;
 
 
-    if (username.length < 2) {
+      if (
+        !username ||
+        !email ||
+        !password
+      ) {
 
-      alert(
-        "Username must contain at least 2 characters."
-      );
-
-      return;
-    }
-
-
-    try {
-
-      const credential =
-        await createUserWithEmailAndPassword(
-          auth,
-          email,
-          password
+        alert(
+          "Please fill in all fields."
         );
 
-
-      const user =
-        credential.user;
-
-
-      await setDoc(
-        doc(db, "users", user.uid),
-        {
-          username: username,
-          loginCount: 0
-        }
-      );
-
-
-      alert(
-        "Registration successful!"
-      );
-
-
-      document
-        .getElementById("registerUsername")
-        .value = "";
-
-
-      document
-        .getElementById("registerEmail")
-        .value = "";
-
-
-      document
-        .getElementById("registerPassword")
-        .value = "";
-
-
-      loadLeaderboard();
-
-
-    } catch (error) {
-
-      console.error(error);
-
-
-      switch (error.code) {
-
-        case "auth/email-already-in-use":
-
-          alert(
-            "This email is already registered."
-          );
-
-          break;
-
-
-        case "auth/invalid-email":
-
-          alert(
-            "Invalid email address."
-          );
-
-          break;
-
-
-        case "auth/weak-password":
-
-          alert(
-            "Password is too weak. Use at least 6 characters."
-          );
-
-          break;
-
-
-        default:
-
-          alert(
-            "Registration failed: " +
-            error.message
-          );
+        return;
 
       }
 
-    }
 
-  };
+      if (
+        username.length < 2
+      ) {
+
+        alert(
+          "Username must contain at least 2 characters."
+        );
+
+        return;
+
+      }
+
+
+      try {
+
+        const credential =
+          await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password
+          );
+
+
+        const user =
+          credential.user;
+
+
+        await setDoc(
+          doc(
+            db,
+            "users",
+            user.uid
+          ),
+          {
+
+            username:
+              username,
+
+            loginCount:
+              0
+
+          }
+        );
+
+
+        alert(
+          "Registration successful!"
+        );
+
+
+        document
+          .getElementById(
+            "registerUsername"
+          )
+          .value = "";
+
+
+        document
+          .getElementById(
+            "registerEmail"
+          )
+          .value = "";
+
+
+        document
+          .getElementById(
+            "registerPassword"
+          )
+          .value = "";
+
+
+        loadLeaderboard();
+
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
+
+
+        switch (
+          error.code
+        ) {
+
+          case
+            "auth/email-already-in-use":
+
+            alert(
+              "This email is already registered."
+            );
+
+            break;
+
+
+          case
+            "auth/invalid-email":
+
+            alert(
+              "Invalid email address."
+            );
+
+            break;
+
+
+          case
+            "auth/weak-password":
+
+            alert(
+              "Password must contain at least 6 characters."
+            );
+
+            break;
+
+
+          default:
+
+            alert(
+              "Registration failed: " +
+              error.message
+            );
+
+        }
+
+      }
+
+    };
 
 
   // =====================================================
   // LOGIN
   // =====================================================
 
-  window.login = async function () {
+  window.login =
+    async function () {
 
-    const email =
-      document
-        .getElementById("loginEmail")
-        .value
-        .trim();
-
-
-    const password =
-      document
-        .getElementById("loginPassword")
-        .value;
+      const email =
+        document
+          .getElementById(
+            "loginEmail"
+          )
+          .value
+          .trim();
 
 
-    if (!email || !password) {
-
-      alert(
-        "Please enter your email and password."
-      );
-
-      return;
-    }
+      const password =
+        document
+          .getElementById(
+            "loginPassword"
+          )
+          .value;
 
 
-    try {
+      if (
+        !email ||
+        !password
+      ) {
 
-      const credential =
-        await signInWithEmailAndPassword(
-          auth,
-          email,
-          password
+        alert(
+          "Please enter your email and password."
         );
 
-
-      const user =
-        credential.user;
-
-
-      const userRef =
-        doc(db, "users", user.uid);
-
-
-      const userDoc =
-        await getDoc(userRef);
-
-
-      if (userDoc.exists()) {
-
-        await updateDoc(
-          userRef,
-          {
-            loginCount: increment(1)
-          }
-        );
-
-      } else {
-
-        await setDoc(
-          userRef,
-          {
-            username:
-              user.email.split("@")[0],
-
-            loginCount: 1
-          }
-        );
+        return;
 
       }
 
 
-      alert(
-        "Login successful!"
-      );
+      try {
 
-
-      loadLeaderboard();
-
-
-    } catch (error) {
-
-      console.error(error);
-
-
-      switch (error.code) {
-
-        case "auth/invalid-credential":
-
-        case "auth/wrong-password":
-
-          alert(
-            "Incorrect email or password."
+        const credential =
+          await signInWithEmailAndPassword(
+            auth,
+            email,
+            password
           );
 
-          break;
+
+        const user =
+          credential.user;
 
 
-        case "auth/invalid-email":
-
-          alert(
-            "Invalid email address."
+        const userRef =
+          doc(
+            db,
+            "users",
+            user.uid
           );
 
-          break;
 
-
-        case "auth/user-disabled":
-
-          alert(
-            "This account has been disabled."
+        const userDoc =
+          await getDoc(
+            userRef
           );
 
-          break;
 
+        if (
+          userDoc.exists()
+        ) {
 
-        default:
+          await updateDoc(
+            userRef,
+            {
 
-          alert(
-            "Login failed: " +
-            error.message
+              loginCount:
+                increment(1)
+
+            }
           );
+
+        } else {
+
+          await setDoc(
+            userRef,
+            {
+
+              username:
+                user.email
+                  .split("@")[0],
+
+              loginCount:
+                1
+
+            }
+          );
+
+        }
+
+
+        alert(
+          "Login successful!"
+        );
+
+
+        loadLeaderboard();
+
+
+      } catch (error) {
+
+        console.error(
+          error
+        );
+
+
+        switch (
+          error.code
+        ) {
+
+          case
+            "auth/invalid-credential":
+
+          case
+            "auth/wrong-password":
+
+            alert(
+              "Incorrect email or password."
+            );
+
+            break;
+
+
+          case
+            "auth/invalid-email":
+
+            alert(
+              "Invalid email address."
+            );
+
+            break;
+
+
+          case
+            "auth/user-disabled":
+
+            alert(
+              "This account has been disabled."
+            );
+
+            break;
+
+
+          default:
+
+            alert(
+              "Login failed: " +
+              error.message
+            );
+
+        }
 
       }
 
-    }
-
-  };
+    };
 
 
   // =====================================================
   // LOGOUT
   // =====================================================
 
-  window.logout = async function () {
+  window.logout =
+    async function () {
 
-    try {
+      try {
 
-      await signOut(auth);
+        await signOut(
+          auth
+        );
 
-      alert(
-        "Logged out."
-      );
 
-    } catch (error) {
+        alert(
+          "Logged out."
+        );
 
-      console.error(error);
 
-      alert(
-        "Logout failed."
-      );
+      } catch (error) {
 
-    }
+        console.error(
+          error
+        );
 
-  };
+
+        alert(
+          "Logout failed."
+        );
+
+      }
+
+    };
 
 
   // =====================================================
@@ -1086,11 +1488,17 @@
 
         const userDoc =
           await getDoc(
-            doc(db, "users", user.uid)
+            doc(
+              db,
+              "users",
+              user.uid
+            )
           );
 
 
-        if (userDoc.exists()) {
+        if (
+          userDoc.exists()
+        ) {
 
           const data =
             userDoc.data();
@@ -1123,169 +1531,190 @@
   // LEADERBOARD
   // =====================================================
 
-  window.loadLeaderboard = async function () {
+  window.loadLeaderboard =
+    async function () {
 
-    const container =
-      document.getElementById(
-        "leaderboardList"
-      );
-
-
-    container.innerHTML =
-      '<p class="loading">Loading leaderboard...</p>';
-
-
-    try {
-
-      const usersRef =
-        collection(
-          db,
-          "users"
+      const container =
+        document.getElementById(
+          "leaderboardList"
         );
-
-
-      const leaderboardQuery =
-        query(
-          usersRef,
-          orderBy(
-            "loginCount",
-            "desc"
-          ),
-          limit(20)
-        );
-
-
-      const snapshot =
-        await getDocs(
-          leaderboardQuery
-        );
-
-
-      container.innerHTML = "";
-
-
-      if (snapshot.empty) {
-
-        container.innerHTML =
-          "<p>No users yet.</p>";
-
-        return;
-      }
-
-
-      let rank = 1;
-
-
-      snapshot.forEach(
-        docSnap => {
-
-          const data =
-            docSnap.data();
-
-
-          const row =
-            document.createElement("div");
-
-
-          row.className =
-            "leaderboard-row";
-
-
-          const rankElement =
-            document.createElement("span");
-
-          rankElement.className =
-            "rank";
-
-          rankElement.textContent =
-            "#" + rank;
-
-
-          const nameElement =
-            document.createElement("strong");
-
-          nameElement.textContent =
-            data.username || "Unknown";
-
-
-          const countElement =
-            document.createElement("span");
-
-          countElement.className =
-            "login-count";
-
-          countElement.textContent =
-            (data.loginCount || 0) +
-            " logins";
-
-
-          row.appendChild(
-            rankElement
-          );
-
-          row.appendChild(
-            nameElement
-          );
-
-          row.appendChild(
-            countElement
-          );
-
-
-          container.appendChild(
-            row
-          );
-
-
-          rank++;
-
-        }
-      );
-
-
-    } catch (error) {
-
-      console.error(error);
 
 
       container.innerHTML =
         `
-        <p class="error">
-          Could not load leaderboard.
-          Check your Firestore Security Rules.
+        <p class="loading">
+          Loading leaderboard...
         </p>
         `;
 
-    }
 
-  };
+      try {
+
+        const usersRef =
+          collection(
+            db,
+            "users"
+          );
+
+
+        const leaderboardQuery =
+          query(
+            usersRef,
+            orderBy(
+              "loginCount",
+              "desc"
+            ),
+            limit(20)
+          );
+
+
+        const snapshot =
+          await getDocs(
+            leaderboardQuery
+          );
+
+
+        container.innerHTML =
+          "";
+
+
+        if (
+          snapshot.empty
+        ) {
+
+          container.innerHTML =
+            "<p>No users yet.</p>";
+
+          return;
+
+        }
+
+
+        let rank = 1;
+
+
+        snapshot.forEach(
+          docSnap => {
+
+            const data =
+              docSnap.data();
+
+
+            const row =
+              document.createElement(
+                "div"
+              );
+
+
+            row.className =
+              "leaderboard-row";
+
+
+            const rankElement =
+              document.createElement(
+                "span"
+              );
+
+
+            rankElement.className =
+              "rank";
+
+
+            rankElement.textContent =
+              "#" + rank;
+
+
+            const nameElement =
+              document.createElement(
+                "strong"
+              );
+
+
+            nameElement.textContent =
+              data.username ||
+              "Unknown";
+
+
+            const countElement =
+              document.createElement(
+                "span"
+              );
+
+
+            countElement.className =
+              "login-count";
+
+
+            countElement.textContent =
+              (
+                data.loginCount ||
+                0
+              ) +
+              " logins";
+
+
+            row.appendChild(
+              rankElement
+            );
+
+
+            row.appendChild(
+              nameElement
+            );
+
+
+            row.appendChild(
+              countElement
+            );
+
+
+            container.appendChild(
+              row
+            );
+
+
+            rank++;
+
+          }
+        );
+
+
+      } catch (error) {
+
+        console.error(
+          "Leaderboard error:",
+          error
+        );
+
+
+        container.innerHTML =
+          `
+          <p class="error">
+            Could not load leaderboard.
+            Check your Firestore Rules.
+          </p>
+          `;
+
+      }
+
+    };
 
 
   loadLeaderboard();
 
 
   // =====================================================
-  // UTILITY
+  // NAVIGATION
   // =====================================================
-
-  function escapeHTML(value) {
-
-    const div =
-      document.createElement("div");
-
-    div.textContent =
-      String(value);
-
-    return div.innerHTML;
-
-  }
-
 
   window.scrollToSection =
     function(id) {
 
       const element =
-        document.getElementById(id);
+        document.getElementById(
+          id
+        );
+
 
       if (element) {
 
@@ -1296,7 +1725,6 @@
       }
 
     };
-
 
 </script>
 
